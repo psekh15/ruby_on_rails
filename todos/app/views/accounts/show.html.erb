@@ -1,0 +1,22 @@
+<p>
+  <strong>First name:</strong>
+  <%= @account.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @account.last_name %>
+</p>
+
+<p>
+  <strong>Gender:</strong>
+  <%= @account.gender %>
+</p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @account.age %>
+</p>
+
+<%= link_to 'Edit', edit_account_path(@account) %> |
+<%= link_to 'Back to Homepage', todo_lists_path %>

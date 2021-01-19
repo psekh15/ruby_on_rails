@@ -1,0 +1,32 @@
+<p>
+  <strong><%= @todo_list.list__name %></strong>
+</p>
+
+<p>
+  <strong>List due date:</strong>
+  <%= @todo_list.list_due_date %>
+</p>
+
+<%= link_to 'Add new todo item', new_todo_list_todo_item_path(@todo_list, @todo_item) %> 
+
+<br>
+<br>
+
+
+<% @todo_list.todo_items.each do |todo_item| %>
+<div>
+<%= todo_item.due_date %>
+<%= link_to "#{todo_item.task_title}", [@todo_list, todo_item] %>
+<%= button_to "Mark Item as Done", remote: true, id: dom_id(todo_item) %>
+</div>
+<% end %>
+
+
+
+<br>
+
+
+<%= link_to 'Edit Todo List', edit_todo_list_path(@todo_list) %>
+<%= link_to 'Delete Todo List', @todo_list, method: :delete, data: { confirm: 'Are you sure?' } %> |
+<%= link_to 'Back To Todo Lists', todo_lists_path %>
+
